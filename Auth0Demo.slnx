@@ -1,0 +1,17 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Production" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="Auth0Demo.Application/Auth0Demo.Application.csproj">
+    <BuildType Solution="Production|*" Project="Release" />
+  </Project>
+  <Project Path="Auth0Demo.Domain/Auth0Demo.Domain.csproj">
+    <BuildType Solution="Production|*" Project="Release" />
+  </Project>
+  <Project Path="Auth0Demo.Infrastructure/Auth0Demo.Infrastructure.csproj">
+    <BuildType Solution="Production|*" Project="Release" />
+  </Project>
+  <Project Path="Auth0Demo.Web/Auth0Demo.Web.csproj" />
+</Solution>

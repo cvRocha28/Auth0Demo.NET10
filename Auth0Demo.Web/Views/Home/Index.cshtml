@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Auth0 Demo</h1>
+
+    <p class="lead">
+        Exemplo de autenticação utilizando Auth0 e ASP.NET Core MVC
+    </p>
+
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <div class="mt-4">
+
+            <h4>Bem-vindo, @User.Identity.Name!</h4>
+
+            <br />
+
+            <a asp-controller="Account"
+               asp-action="Profile"
+               class="btn btn-success">
+
+                Meu Perfil
+
+            </a>
+
+            <a asp-controller="Account"
+               asp-action="Logout"
+               class="btn btn-danger">
+
+                Sair
+
+            </a>
+
+        </div>
+    }
+    else
+    {
+        <br />
+
+        <a asp-controller="Account"
+           asp-action="Login"
+           class="btn btn-primary btn-lg">
+
+            Entrar com Auth0
+
+        </a>
+    }
+
+</div>

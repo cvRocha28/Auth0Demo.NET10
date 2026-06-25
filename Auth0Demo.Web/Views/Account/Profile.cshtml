@@ -1,0 +1,86 @@
+﻿@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header">
+            <h3>Perfil do Usuário</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row mb-4">
+
+                <div class="col-md-2">
+
+                    @{
+                        var picture = User.FindFirst("picture")?.Value;
+                    }
+
+                    @if (!string.IsNullOrEmpty(picture))
+                    {
+                        <img src="@picture"
+                             class="img-thumbnail rounded-circle"
+                             width="120"
+                             height="120" />
+                    }
+
+                </div>
+
+                <div class="col-md-10">
+
+                    <h4>@User.Identity?.Name</h4>
+
+                    <p>
+                        <strong>Email:</strong>
+                        @User.FindFirst(ClaimTypes.Email)?.Value
+                    </p>
+
+                    <p>
+                        <strong>Autenticado:</strong>
+                        @User.Identity?.IsAuthenticated
+                    </p>
+
+                </div>
+
+            </div>
+
+            <hr />
+
+            <h4>Claims</h4>
+
+            <table class="table table-striped table-bordered">
+
+                <thead>
+
+                    <tr>
+                        <th>Claim</th>
+                        <th>Valor</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var claim in User.Claims.OrderBy(c => c.Type))
+                    {
+                        <tr>
+                            <td>@claim.Type</td>
+                            <td>@claim.Value</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

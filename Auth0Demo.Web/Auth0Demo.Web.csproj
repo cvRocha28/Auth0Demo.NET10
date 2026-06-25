@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>b1214dab-b80b-4700-acb2-c5feb01c3b9e</UserSecretsId>
+    <Configurations>Debug;Release;Production</Configurations>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Auth0.AspNetCore.Authentication" Version="1.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Auth0Demo.Application\Auth0Demo.Application.csproj" />
+    <ProjectReference Include="..\Auth0Demo.Infrastructure\Auth0Demo.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
