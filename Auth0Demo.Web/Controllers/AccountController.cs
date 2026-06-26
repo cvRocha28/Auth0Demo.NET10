@@ -11,6 +11,9 @@ public class AccountController : Controller
     [HttpGet]
     public async Task Login(string returnUrl = "/")
     {
+        if (!Url.IsLocalUrl(returnUrl))
+            returnUrl = "/";
+
         var authenticationProperties = new LoginAuthenticationPropertiesBuilder()
             .WithRedirectUri(returnUrl)
             .Build();
@@ -25,8 +28,9 @@ public class AccountController : Controller
     [HttpGet]
     public async Task Logout()
     {
+        var redirectUri = Url.Action("Index", "Home") ?? "/";
         var authenticationProperties = new LogoutAuthenticationPropertiesBuilder()
-            .WithRedirectUri(Url.Action("Index", "Home"))
+            .WithRedirectUri(redirectUri)
             .Build();
 
         await HttpContext.SignOutAsync(
@@ -41,6 +45,12 @@ public class AccountController : Controller
 
     [HttpGet]
     public IActionResult AccessDenied()
+    {
+        return View();
+    }
+
+    [HttpGet]
+    public IActionResult LoginError()
     {
         return View();
     }

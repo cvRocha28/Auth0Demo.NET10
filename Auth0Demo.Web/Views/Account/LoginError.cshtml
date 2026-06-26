@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Erro no login";
+}
+
+<div class="container mt-5">
+
+    <div class="alert alert-danger shadow-sm">
+
+        <h4 class="alert-heading">
+            Erro ao realizar login
+        </h4>
+
+        <p>
+            Não foi possível concluir a autenticação. Tente novamente.
+        </p>
+
+        <hr />
+
+        <a asp-controller="Account"
+           asp-action="Login"
+           class="btn btn-danger">
+            Tentar novamente
+        </a>
+
+    </div>
+
+</div>
