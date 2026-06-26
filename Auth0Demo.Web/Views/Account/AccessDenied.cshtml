@@ -2,28 +2,38 @@
     ViewData["Title"] = "Acesso Negado";
 }
 
-<div class="container mt-5">
+<div class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body text-center px-5 py-5">
 
-    <div class="alert alert-danger shadow">
+                        <div class="mb-4">
+                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-danger">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="12"></line>
+                                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                            </svg>
+                        </div>
 
-        <h2>Acesso Negado</h2>
+                        <h1 class="h2 fw-bold mb-2">
+                            Acesso Negado
+                        </h1>
 
-        <hr />
+                        <p class="text-muted fs-6 mb-4">
+                            Desculpe, você não tem permissão para acessar este recurso.
+                        </p>
+                        <a asp-controller="Home"
+                            asp-action="Index"
+                            class="btn btn-light btn-lg px-4 border">
+                            <i class="bi bi-house me-2"></i>Ir para Home
+                        </a>
 
-        <p>
+                    </div>
 
-            Você não possui permissão para acessar esta página.
-
-        </p>
-
-        <a asp-controller="Home"
-           asp-action="Index"
-           class="btn btn-primary">
-
-            Voltar para Home
-
-        </a>
-
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
